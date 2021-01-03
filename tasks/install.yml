@@ -27,7 +27,6 @@
       when: 
         - not nifi_bin_exists.stat.exists |  bool
         - nifi_install_local == false
-      register: get_nifi
 
     - name: Unarchive binaries.
       unarchive: src="{{ nifi_temp_file }}" dest="{{ nifi_base_dir }}" remote_src="yes" creates="{{ nifi_bin_nifi }}"
@@ -36,9 +35,6 @@
       file: path="{{ nifi_temp_file }}" state="absent"
     
   rescue:
-    - name: Print http response. 
-      debug: var=get_nifi.status_code
-
     - name: Use local binary file and unarchive.
       unarchive: src="{{ nifi_install_local_dir }}" dest="{{ nifi_base_dir }}" creates="{{ nifi_bin_nifi }}"
 
