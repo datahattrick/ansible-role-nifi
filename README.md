@@ -1,4 +1,4 @@
-Role Name
+Apache Nifi
 =========
 
 Create an Apache Nifi server or cluster.
