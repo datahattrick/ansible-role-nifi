@@ -21,11 +21,11 @@ nifi_version: 1.12.1
 nifi_install_local: false
 nifi_install_local_dir: ./files/nifi-{{ nifi_version }}-bin.tar.gz
 nifi_base_dir: /opt
-nifi_graceful_shutdown: 20
+nifi_force_restart: true
+
+# JVM Settings #
 nifi_memory_low: 512
 nifi_memory_high: 4096
-
-nifi_force_restart: true
 
 # Directory Locations #
 nifi_temp_file: /tmp/nifi-{{ nifi_version }}-bin.tar.gz
@@ -45,6 +45,7 @@ nifi_auto_resume_processors: true
 nifi_default_backpressure_count: 10000
 nifi_default_backpressure_size: 1 GB
 nifi_banner_text:
+nifi_graceful_shutdown: 20
 
 # Flowfile Repository settings #
 nifi_queue_swap_threshold: 20000
