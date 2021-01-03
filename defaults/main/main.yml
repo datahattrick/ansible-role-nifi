@@ -83,4 +83,4 @@ nifi_proxy_context_path:
 nifi_proxy_host:
 
 # Nifi Registry Settings #
-nifi_variable_registry_properties: [ "{{ nifi_conf_dir }}/extra-args.properties" ]
+#nifi_variable_registry_properties: [ "{{ nifi_conf_dir }}/extra-args.properties" ]
