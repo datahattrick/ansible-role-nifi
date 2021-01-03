@@ -1,8 +1,8 @@
 ---
 
 ####################################################################################
-# Main configuration variables that are set to stand up a simple instance of nifi. #
-# Other variables have been put into seperate files to make it easier to set if it #
+# Main configuration variables that are set to stand up a simple instance of Nifi. #
+# Other variables have been put into separate files to make it easier to set if it #
 # is required.                                                                     #
 #                                                                                  #
 # For log configurations = log.yml                                                 #
@@ -11,13 +11,15 @@
 # For Cluster configuration = cluster.yml                                          #
 ####################################################################################
 
+# JAVA #
 # If you wish to have openjdk-8-jdk auto-installed leave it as true otherwise set to false. #
 nifi_install_java: true
 
 # Installation configuration #
 nifi_check_install: true
 nifi_version: 1.12.1
-nifi_local_bin_tar: ./files/nifi-{{ nifi_version }}-bin.tar.gz
+nifi_install_local: false
+nifi_install_local_dir: ./files/nifi-{{ nifi_version }}-bin.tar.gz
 nifi_base_dir: /opt
 nifi_graceful_shutdown: 20
 nifi_memory_low: 512

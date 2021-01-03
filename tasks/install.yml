@@ -24,7 +24,9 @@
         url: "{{ nifi_bin_url }}"
         dest: "{{ nifi_temp_file }}"
         checksum: "{{ nifi_bin_url_checksum }}"
-      when: "not nifi_bin_exists.stat.exists |  bool"
+      when: 
+        - not nifi_bin_exists.stat.exists |  bool
+        - nifi_local_install == false
       register: get_nifi
 
     - name: Unarchive binaries.
@@ -38,7 +40,7 @@
       debug: var=get_nifi.status_code
 
     - name: Use local binary file and unarchive.
-      unarchive: src="{{ nifi_local_bin_tar }}" dest="{{ nifi_base_dir }}" creates="{{ nifi_bin_nifi }}"
+      unarchive: src="{{ nifi_install_local_dir }}" dest="{{ nifi_base_dir }}" creates="{{ nifi_bin_nifi }}"
 
   # tasks file for nifi
 - name: Make sure nifi files are world-readable
