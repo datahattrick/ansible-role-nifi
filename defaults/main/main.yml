@@ -21,7 +21,6 @@ nifi_version: 1.12.1
 nifi_install_local: false
 nifi_install_local_dir: ./files/nifi-{{ nifi_version }}-bin.tar.gz
 nifi_base_dir: /opt
-nifi_force_restart: true
 
 # JVM Settings #
 nifi_memory_low: 512
