@@ -26,7 +26,7 @@
         checksum: "{{ nifi_bin_url_checksum }}"
       when: 
         - not nifi_bin_exists.stat.exists |  bool
-        - nifi_local_install == false
+        - nifi_install_local == false
       register: get_nifi
 
     - name: Unarchive binaries.
