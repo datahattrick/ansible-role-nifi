@@ -1,0 +1,9 @@
+---
+# handlers file for ansible-role-nifi
+
+- name: reload systemd
+  systemd:
+    daemon_reload: yes
+
+- name: restart nifi
+  service: name=nifi state=restarted enabled=yes

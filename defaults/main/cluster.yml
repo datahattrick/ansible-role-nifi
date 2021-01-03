@@ -1,0 +1,28 @@
+---
+
+## Embedded Zookeeper Settings #
+nifi_embedded_zookeeper_enabled: false
+
+## State Management Settings #
+nifi_SM_local_provider: local-provider
+nifi_SM_cluster_provider: zk-provider
+nifi_SM_enable_embedded_zookeeper: false
+
+## Nifi Cluster settings #
+nifi_authorized_nodes_list: []
+nifi_cluster_heartbeat_interval: 5 sec
+nifi_cluster_heartbeat_missable: 8
+nifi_is_node: false
+nifi_node_address:
+nifi_node_protocol_port:
+
+## NiFi zookeeper settings #
+# Zookeeper 3.5 now includes an Admin Server that starts on port 8080, since NiFi is already using that port disable by default. #
+nifi_zookeeper_enable_admin_server: false
+nifi_zookeeper_servers: []
+nifi_zookeeper_dir: /data/zookeeper
+nifi_state_management_embedded_zookeeper_start: false
+nifi_zookeeper_root_node: '/nifi'
+nifi_zookeeper_session_timeout: '10 seconds'
+nifi_zookeeper_autopurge_purgeInterval: 24
+nifi_zookeeper_autopurge_snapRetainCount: 30

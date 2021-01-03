@@ -1,0 +1,13 @@
+---
+
+## Security Settings #
+nifi_initial_admin:
+nifi_is_secure: false
+nifi_security_keystore:
+nifi_security_keystoreType: JKS
+nifi_security_keystorePassword:
+nifi_security_keypassword:
+nifi_security_truststore:
+nifi_security_truststoreType: JKS
+nifi_security_truststorePassword:
+nifi_need_client_auth:

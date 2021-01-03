@@ -1,0 +1,16 @@
+---
+# vars file for ansible-role-nifi
+
+nifi_user: nifi
+nifi_service: /etc/systemd/system/nifi.service
+nifi_set_ulimit: false
+nifi_openfile_limit: 50000
+nifi_bin_nifi: "{{ nifi_base_dir }}/nifi-{{ nifi_version }}/bin/nifi.sh"
+
+nifi_home: "{{ nifi_base_dir }}/nifi"
+nifi_bin_dir: "{{ nifi_home }}/bin"
+nifi_conf_dir: "{{ nifi_home }}/conf"
+nifi_lib_dir: "{{ nifi_home }}/lib"
+nifi_work_dir: "{{ nifi_home }}/work"
+nifi_pid_file: "{{ nifi_pid_dir }}/nifi.pid"
+

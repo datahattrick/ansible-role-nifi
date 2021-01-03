@@ -1,0 +1,5 @@
+---
+
+# log config
+
+nifi_log_app_file_retention: 30

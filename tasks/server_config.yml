@@ -1,0 +1,13 @@
+---
+
+# Set high hard limit for open files
+- name: Add or modify fsize hard limit for the user nifi. Keep or set the maximal value.
+  pam_limits: domain="nifi" limit_type="hard" limit_item="fsize" value="{{ nifi_openfile_limit }}" use_max="yes"
+  when: "nifi_set_ulimit | bool"
+# no swappiness
+- name: Remove Swappiness
+  sysctl: name="vm.swappiness" value="0" state="present"
+
+## Some best practices to look into
+# increase tcp ephemrial sockets
+# tcp wait time 10s

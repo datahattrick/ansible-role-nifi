@@ -1,0 +1,4 @@
+---
+# Encryption config
+
+nifi_content_repo_encryption_key:

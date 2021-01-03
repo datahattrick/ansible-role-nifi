@@ -1,0 +1,84 @@
+---
+
+####################################################################################
+# Main configuration variables that are set to stand up a simple instance of nifi. #
+# Other variables have been put into seperate files to make it easier to set if it #
+# is required.                                                                     #
+#                                                                                  #
+# For log configurations = log.yml                                                 #
+# For security/ssl configuration = security.yml                                    #
+# For encryption configuration = encryption.yml                                    #
+# For Cluster configuration = cluster.yml                                          #
+####################################################################################
+
+# If you wish to have openjdk-8-jdk auto-installed leave it as true otherwise set to false. #
+nifi_install_java: true
+
+# Installation configuration #
+nifi_check_install: true
+nifi_version: 1.12.1
+nifi_local_bin_tar: ./files/nifi-{{ nifi_version }}-bin.tar.gz
+nifi_base_dir: /opt
+nifi_graceful_shutdown: 20
+nifi_memory_low: 512
+nifi_memory_high: 4096
+
+nifi_force_restart: true
+
+# Directory Locations #
+nifi_temp_file: /tmp/nifi-{{ nifi_version }}-bin.tar.gz
+nifi_etc_dir: /etc/nifi
+nifi_log_dir: /var/log/nifi
+nifi_pid_dir: /var/run/nifi
+nifi_nar_library_autoload_directory: "{{ nifi_home }}/extensions"
+
+# defaults file / directories for nifi #
+nifi_database_repository: "{{ nifi_home }}/database_repository"
+nifi_flowfile_repository: "{{ nifi_home }}/flowfile_repository"
+nifi_content_repositories: [ "{{ nifi_home }}/content_repository" ]
+nifi_provenance_repositories: [ "{{ nifi_home }}/provenance_repository" ]
+
+# Core settings #
+nifi_auto_resume_processors: true
+nifi_default_backpressure_count: 10000
+nifi_default_backpressure_size: 1 GB
+nifi_banner_text:
+
+# Flowfile Repository settings #
+nifi_queue_swap_threshold: 20000
+
+# Content Repository Settings #
+nifi_content_repo_insync: false
+
+# Archive Settings #
+nifi_archive_enabled: false
+nifi_archive_retention_period: 7 days
+nifi_archive_usage_percentage: 50%
+
+# Provenance Settings #
+nifi_provenance_storage_time: 30 days
+nifi_provenance_storage_size: 10 GB
+nifi_provenance_rollover_time: 10 mins
+nifi_provenance_rollover_size: 100 MB
+nifi_provenance_query_threads: 2
+nifi_provenance_index_threads: 2
+nifi_provenance_indexed_fields: EventType, FlowFileUUID, Filename, ProcessorID, Relationship
+nifi_provenance_indexed_attributes:
+nifi_provenance_indexed_shard_size: 500 MB
+
+# Site to Site Settings #
+nifi_remote_input_host:
+nifi_remote_input_port: 9445
+nifi_remote_input_http_enabled: true
+
+# Web Settings #
+nifi_web_host:
+nifi_web_http_port: 8080
+nifi_web_https_port: 8443
+
+# Proxy Settings #
+nifi_proxy_context_path:
+nifi_proxy_host:
+
+# Nifi Registry Settings #
+nifi_variable_registry_properties: [ "{{ nifi_conf_dir }}/extra-args.properties" ]

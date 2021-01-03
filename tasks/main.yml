@@ -1,0 +1,16 @@
+---
+- name: Update apt cache if Ubuntu.
+  apt: update_cache="true"
+  when: ansible_distribution == "Ubuntu"
+  
+  # Check for at least openjdk-8 if not install
+- name: Check and install open-jdk-8.
+  become: yes
+  package: name="openjdk-8-jdk" state="present"
+  when: "nifi_install_java | bool"
+  
+# tasks file for ansible-role-nifi
+
+- include: server_config.yml
+- include: install.yml
+- include: config.yml
